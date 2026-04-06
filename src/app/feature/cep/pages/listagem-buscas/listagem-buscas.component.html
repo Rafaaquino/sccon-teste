@@ -1,0 +1,68 @@
+<section class="listagem" aria-labelledby="listagem-title">
+  <ng-container *ngIf="buscas$ | async as buscas">
+    <div
+      *ngIf="buscas.length === 0"
+      class="listagem__empty"
+      data-status="empty"
+      role="status"
+    >
+      <mat-icon class="listagem__empty-icon" aria-hidden="true">inbox</mat-icon>
+      <p>Nenhuma busca realizada ainda.</p>
+      <button
+        class="listagem__btn-nova-busca"
+        (click)="irParaBusca()"
+        data-action="nova-busca-empty"
+      >
+        Buscar agora
+      </button>
+    </div>
+
+    <div *ngIf="buscas.length > 0" class="listagem__table-wrapper">
+      <table
+        class="listagem__table"
+        aria-label="Tabela de buscas de CEP realizadas"
+      >
+        <thead>
+          <tr>
+            <th scope="col" class="listagem__th">CEP</th>
+            <th scope="col" class="listagem__th">Endereço</th>
+            <th scope="col" class="listagem__th">Data</th>
+            <th scope="col" class="listagem__th listagem__th--action">
+              <span class="sr-only">Ações</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let busca of buscas; let i = index"
+            class="listagem__row"
+            [attr.data-index]="i"
+          >
+            <td class="listagem__td listagem__td--cep">
+              <span class="listagem__cep-badge">{{
+                busca.cep | mask: "00000-000"
+              }}</span>
+            </td>
+            <td class="listagem__td">{{ formatarEndereco(busca) }}</td>
+            <td class="listagem__td listagem__td--date">
+              <time [dateTime]="busca.dataHora">
+                {{ busca.dataHora | date: "dd/MM/yyyy - HH:mm" }}
+              </time>
+            </td>
+            <td class="listagem__td listagem__td--action">
+              <button
+                class="listagem__btn-delete"
+                (click)="deletarBusca(i)"
+                [attr.aria-label]="'Deletar busca do CEP ' + busca.cep"
+                data-action="deletar-busca"
+                title="Remover busca"
+              >
+                &#x2715;
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+</section>
