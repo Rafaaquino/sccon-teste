@@ -1,0 +1,59 @@
+@import "variables";
+
+@mixin btn-custom($bg: $color-button, $hover-bg: $color-button-hover) {
+  background-color: $bg;
+  border: none;
+  border-radius: $border-radius-btn;
+  cursor: pointer;
+  font-family: $font-base;
+  transition:
+    background-color $transition-speed $transition-ease,
+    transform $transition-speed $transition-ease;
+
+  &:hover {
+    background-color: $hover-bg;
+  }
+
+  &:active {
+    background-color: darken($hover-bg, 4%);
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    outline: 2px solid rgba($color-primary, 0.4);
+    outline-offset: 2px;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card {
+  background: #fff;
+  border-radius: $border-radius-card;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+}
+
+@mixin input-invalid {
+  border-color: $color-error !important;
+  box-shadow: 0 0 0 3px rgba($color-error, 0.15);
+}
+
+@mixin fade-in($duration: 0.3s) {
+  animation: fadeIn $duration $transition-ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
