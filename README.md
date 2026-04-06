@@ -2,6 +2,8 @@
 
 SPA desenvolvida em Angular 6 como teste técnico para a vaga de desenvolvedor front-end na SCCON
 
+Página funcional para teste em produção https://rafaaquino.github.io/sccon-teste/
+
 ## Pré-requisitos
 
 - Node versão 10
