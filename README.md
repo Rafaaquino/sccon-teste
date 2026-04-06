@@ -18,10 +18,10 @@ npm install
 
 ## Executar
 
-verifique se em sua maquina local a versão do Node esta na 10
+verifique a versão do Node em sua máquina local.
 abra o termina e digite `Node -v`.
 
-se nao estiver tera que instalar a versao 10 ou usar NVM https://www.nvmnode.com/pt/ para gerenciamento de versões de Node
+Precisamos da versão 10 do Node, se não tiver terá que instalar a versão 10 ou usar NVM https://www.nvmnode.com/pt/ para gerenciamento de versões de Node
 
 após baixar o projeto abra o termina e faça a instalação
 rode o comando `npm i` e `npm run start` o projeto ira abir em [http://localhost:4200]
