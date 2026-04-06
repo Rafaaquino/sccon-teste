@@ -1,0 +1,135 @@
+@import "variables";
+@import "mixins";
+
+.busca-cep {
+  padding: $spacing-md;
+
+  &__card {
+    @include card;
+    @include fade-in(0.35s);
+    padding: $spacing-md $spacing-lg;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #444;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &__input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__input {
+    height: 44px;
+    padding: 0 $spacing-md;
+    border: 1px solid #ccc;
+    border-radius: $border-radius-btn;
+    font-size: 1rem;
+    font-family: $font-base;
+    width: 100%;
+    outline: none;
+    transition:
+      border-color $transition-speed $transition-ease,
+      box-shadow $transition-speed $transition-ease;
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+    }
+
+    &--invalid {
+      @include input-invalid;
+    }
+  }
+
+  &__error {
+    font-size: 0.8rem;
+    color: $color-error;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__api-error {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-top: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    background-color: rgba($color-error, 0.08);
+    border: 1px solid rgba($color-error, 0.3);
+    border-radius: $border-radius-btn;
+    color: $color-error;
+    font-size: 0.875rem;
+
+    mat-icon {
+      font-size: 18px;
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  &__btn {
+    @include btn-custom($color-button, $color-button-hover);
+    color: #333;
+    height: 44px;
+    padding: 0 $spacing-lg;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    flex-shrink: 0;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    mat-icon {
+      font-size: 18px;
+      height: 18px;
+      width: 18px;
+    }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

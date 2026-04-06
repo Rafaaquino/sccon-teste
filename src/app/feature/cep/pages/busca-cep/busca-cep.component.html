@@ -1,0 +1,75 @@
+<section class="busca-cep">
+  <div class="busca-cep__card">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="busca-cep__form"
+      novalidate
+      aria-label="Formulário de busca por CEP"
+    >
+      <label for="cep-input" class="busca-cep__label">Busca por CEP:</label>
+
+      <div class="busca-cep__input-wrapper">
+        <input
+          id="cep-input"
+          type="text"
+          formControlName="cep"
+          mask="00000-000"
+          placeholder="00000-000"
+          class="busca-cep__input"
+          [class.busca-cep__input--invalid]="cepInvalido"
+          aria-required="true"
+          [attr.aria-invalid]="cepInvalido"
+          aria-describedby="cep-error"
+          (input)="limparErro()"
+          data-field="cep"
+          autocomplete="off"
+        />
+        <span
+          *ngIf="cepInvalido"
+          id="cep-error"
+          class="busca-cep__error"
+          role="alert"
+          aria-live="polite"
+        >
+          <span *ngIf="cepControl.errors?.required">CEP é obrigatório.</span>
+          <span *ngIf="cepControl.errors?.cepInvalido"
+            >CEP inválido. Use o formato 00000-000.</span
+          >
+        </span>
+      </div>
+
+      <button
+        type="submit"
+        class="busca-cep__btn"
+        [disabled]="carregando"
+        data-action="buscar"
+        aria-label="Buscar endereço pelo CEP informado"
+      >
+        <span *ngIf="!carregando">
+          <mat-icon>search</mat-icon>
+          Buscar
+        </span>
+        <span
+          *ngIf="carregando"
+          class="busca-cep__loading"
+          aria-label="Carregando..."
+        >
+          <span class="busca-cep__spinner"></span>
+          Buscando...
+        </span>
+      </button>
+    </form>
+
+    <div
+      *ngIf="erroApi"
+      class="busca-cep__api-error"
+      role="alert"
+      aria-live="assertive"
+      data-status="api-error"
+    >
+      <mat-icon>error_outline</mat-icon>
+      {{ mensagemErro }}
+    </div>
+  </div>
+</section>
