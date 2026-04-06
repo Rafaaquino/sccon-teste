@@ -1,0 +1,24 @@
+$color-primary: #670000;
+$color-primary-dark: darken($color-primary, 8%);
+
+$color-button: #d7dbdd;
+$color-button-hover: darken($color-button, 6%);
+$color-button-active: darken($color-button, 10%);
+
+$color-error: #e53935;
+$color-success: #43a047;
+
+$font-base: "Roboto", sans-serif;
+$app-font-size-base: 16px;
+
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+$border-radius-btn: 4px;
+$border-radius-card: 8px;
+
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+$transition-speed: 0.2s;
+$transition-ease: ease-in-out;
