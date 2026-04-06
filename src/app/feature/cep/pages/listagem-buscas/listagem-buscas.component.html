@@ -8,13 +8,6 @@
     >
       <mat-icon class="listagem__empty-icon" aria-hidden="true">inbox</mat-icon>
       <p>Nenhuma busca realizada ainda.</p>
-      <button
-        class="listagem__btn-nova-busca"
-        (click)="irParaBusca()"
-        data-action="nova-busca-empty"
-      >
-        Buscar agora
-      </button>
     </div>
 
     <div *ngIf="buscas.length > 0" class="listagem__table-wrapper">

@@ -22,10 +22,6 @@ export class ListagemBuscasComponent {
     this.cepService.deletarBusca(index);
   }
 
-  irParaBusca(): void {
-    this.router.navigate(["/enderecos/busca"]);
-  }
-
   formatarEndereco(busca: BuscaRealizada): string {
     const { logradouro, bairro, localidade, uf } = busca.endereco;
     const partes = [logradouro, bairro, localidade, uf].filter(Boolean);
