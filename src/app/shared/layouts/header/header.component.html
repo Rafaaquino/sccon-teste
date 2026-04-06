@@ -1,0 +1,57 @@
+<header class="header">
+  <mat-toolbar class="header__toolbar">
+    <div class="header__container">
+    <a
+      class="header__brand"
+      routerLink="/home"
+      aria-label="Ir para a página inicial"
+    >
+      <img
+        src="assets/images/logo/sccon-logo.png"
+        alt="SCCON"
+        class="header__logo"
+        width="120"
+        height="40"
+      />
+    </a>
+
+    <nav class="header__nav" aria-label="Menu principal">
+      <a
+        mat-button
+        routerLink="/home"
+        routerLinkActive="header__nav-link--active"
+        class="header__nav-link"
+        data-nav="home"
+      >
+        Home
+      </a>
+
+      <button
+        mat-button
+        [matMenuTriggerFor]="menuEnderecos"
+        class="header__nav-link"
+        data-nav="enderecos"
+        aria-haspopup="true"
+      >
+        Endereços
+        <mat-icon class="header__menu-icon">arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu
+        #menuEnderecos="matMenu"
+        class="header__submenu"
+        xPosition="before"
+      >
+        <a
+          mat-menu-item
+          routerLink="/enderecos/busca"
+          data-nav="buscar-enderecos"
+        >
+          <mat-icon>search</mat-icon>
+          Buscar Endereços
+        </a>
+      </mat-menu>
+    </nav>
+    </div>
+  </mat-toolbar>
+</header>

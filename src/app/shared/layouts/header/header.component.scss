@@ -1,0 +1,92 @@
+@import "variables";
+@import "mixins";
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__toolbar {
+    background-color: $color-primary !important;
+    height: 64px;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+  }
+
+  &__container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__logo {
+    height: 40px;
+    width: auto;
+    transition: opacity $transition-speed $transition-ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__nav-link {
+    color: #fff !important;
+    background-color: $color-button !important;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    text-transform: none;
+    transition: background-color $transition-speed $transition-ease;
+
+    &:hover {
+      background-color: $color-button-hover !important;
+    }
+
+    &--active {
+      background-color: $color-button-active !important;
+      font-weight: 500;
+    }
+  }
+
+  &__menu-icon {
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
+    margin-left: 2px;
+    vertical-align: middle;
+  }
+}
+
+::ng-deep .header__submenu {
+  margin-top: 3rem;
+
+  .mat-menu-item {
+    color: #333;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.08);
+    }
+
+    mat-icon {
+      color: $color-primary;
+      margin-right: $spacing-sm;
+    }
+  }
+}
