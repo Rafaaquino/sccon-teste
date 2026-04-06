@@ -1,0 +1,34 @@
+<section class="home" aria-labelledby="home-title">
+  <div class="home__card">
+    <img
+      src="assets/images/logo/sccon-logo.png"
+      alt="SCCON"
+      class="home__logo"
+      aria-hidden="true"
+    />
+
+    <h1 id="home-title" class="home__title">
+      Bem-vindo/a ao teste de front-end
+    </h1>
+
+    <p class="home__subtitle">
+      Teste Realizado por
+      <strong>{{ author }}</strong>
+      em
+      <time [dateTime]="testDate | date: 'yyyy-MM-dd'">
+        {{ testDate | date: "dd/MM/yyyy" }}
+      </time>
+    </p>
+
+    <a
+      routerLink="/enderecos/busca"
+      mat-raised-button
+      class="home__cta"
+      data-action="ir-para-busca"
+      aria-label="Ir para busca de endereços por CEP"
+    >
+      <mat-icon>search</mat-icon>
+      Buscar Endereço por CEP
+    </a>
+  </div>
+</section>
